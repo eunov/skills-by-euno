@@ -10,7 +10,7 @@ A daily wrap-up skill. Aggregates the day, proposes updates to your live state f
 
 ## Configuration
 
-Customize these paths to match your project. Defaults assume a flat layout in your project root. If your repo uses different paths, swap them in everywhere they appear below.
+Customize these paths to match your project. Defaults assume a flat layout in your project root. If your repo uses different paths, swap them in everywhere they appear below. If none of these files exist yet, see **First-run setup** below — the skill will bootstrap them for you.
 
 | Purpose | Default path | What goes here |
 |---|---|---|
@@ -19,6 +19,34 @@ Customize these paths to match your project. Defaults assume a flat layout in yo
 | Goals file | `goals.md` | Quarterly or longer-term targets |
 | Decisions log | `decisions/log.md` | Append-only log of meaningful decisions |
 | Project docs | `projects/[slug].md` | One file per active project |
+
+### First-run setup
+
+If NONE of `priorities.md`, `goals.md`, `decisions/log.md`, or any `projects/*.md` exist in the project root when the skill runs, do a short bootstrap before Step 0. If any one of them exists, skip the bootstrap and proceed normally.
+
+**Opener (one line):**
+"Looks like this is your first evening beer. Quick setup before we crack one open. (yes / skip)"
+
+**If yes, ask these questions in sequence, one at a time. Short answers expected:**
+
+1. "Top 3–5 priorities right now? (one per line)" → write `priorities.md` with a `# Priorities` header and the lines beneath as bullets.
+2. "Goals this quarter or year? (one per line, include a target/metric if you've got one)" → write `goals.md` with a `# Goals` header and the lines beneath as bullets.
+3. "Active projects? (slug + one-line description per project, one per line)" → create one `projects/[slug].md` stub per entry, each with a `# [Slug]` header and the one-line description underneath.
+
+**Always create regardless of answers** (so the bootstrap does not re-trigger next run):
+
+- `decisions/log.md` with a `# Decisions` header.
+- `eod-logs/` folder (empty).
+
+**Skip path:** if the user says "skip" at the opener, still create empty stub files (`priorities.md`, `goals.md`, `decisions/log.md`) with just headers, plus the `eod-logs/` folder. Do not create any `projects/` files — by skipping, the user has not declared any projects.
+
+**After writing:** output the created paths as a short bullet list, then proceed straight into Step 0 with the normal opener.
+
+**Style for the bootstrap:**
+
+- Questions one line each. No preamble paragraphs.
+- Same style rules as the rest of the skill: no em dashes, no inflated verbs, no motivational language.
+- Capture the user's answers literally into the seed files. Do not rewrite or expand into prose.
 
 ## Style
 
@@ -33,6 +61,8 @@ Customize these paths to match your project. Defaults assume a flat layout in yo
 - Single approval pattern: show the full proposal, get one yes, then write. Do not write any file before approval.
 
 ## Step 0 — Crack one open
+
+Before generating the opener, check the configured paths. If none of `priorities.md`, `goals.md`, `decisions/log.md`, or any `projects/*.md` exist, run **First-run setup** (see Configuration) first, then come back here.
 
 Generate a fresh one-line opener every run. Do not reuse the same line twice. The four examples below are style references, not a pick list — write a new one in their spirit.
 
