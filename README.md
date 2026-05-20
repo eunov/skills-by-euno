@@ -1,40 +1,32 @@
 # skills-by-euno
 
-A collection of Claude Code skills built to boost productivity in a role-agnostic environment. Whether you're an engineer, PM, operator, founder, or analyst — these skills are designed to plug into your workflow without assuming what you do for a living.
+Claude Code skills I use to run my day. Drop them in your skills directory and they activate on the trigger phrases in each `SKILL.md`.
 
 ## What's a skill?
 
-A skill is a self-contained markdown file (`SKILL.md`) that teaches Claude Code how to handle a specific recurring task. Skills activate on natural-language triggers, run a defined procedure, and stay out of your way the rest of the time.
+A markdown file with frontmatter that tells Claude Code how to handle a specific recurring task. Triggered by natural language. Stays dormant until you ask.
 
-## Available skills
+## Skills
 
-| Skill | What it does |
-|---|---|
-| [`evening-beer`](evening-beer/SKILL.md) | End-of-day wrap. Aggregates the day from memory, git, decisions log, and your PM tool. One approval, then writes everything in a single pass. |
+| Skill | Triggers on | What it does |
+|---|---|---|
+| [`evening-beer`](evening-beer/SKILL.md) | "EOD", "wrap up the day", "let's crack a beer", etc. | Aggregates the day from memory, git, decisions log, and PM tool. Proposes one batched update across EOD log, priorities, goals, decisions, projects, and auto-memory. One approval, then writes everything. |
 
 ## Install
-
-Drop any skill folder into your Claude Code skills directory:
-
-```
-~/.claude/skills/
-```
-
-Or clone the whole repo into your skills directory:
 
 ```
 git clone https://github.com/eunov/skills-by-euno.git ~/.claude/skills/skills-by-euno
 ```
 
-Restart Claude Code and the skills will be discoverable by their trigger phrases.
+Or copy individual skill folders into `~/.claude/skills/`. Restart Claude Code and the trigger phrases will work.
 
-## Philosophy
+## Conventions
 
-- **Role-agnostic.** No assumptions about job title, stack, or tooling. Configure paths and integrations per project.
-- **Explicit triggers.** Skills only activate when you ask. No surprise behavior.
-- **One approval, then write.** Skills propose changes in full before touching files. You stay in control.
-- **Plain language.** No motivational filler. No inflated verbs. Capture what happened, do the work.
+- One folder per skill. `SKILL.md` is required, anything else is optional.
+- Frontmatter needs `name` and `description`. The description must list trigger phrases so Claude knows when to invoke the skill.
+- Explicit triggers only. No skill should run unless the user asks for it by name or trigger phrase.
+- Show the full proposal, get one approval, then write. No partial writes.
 
 ## Contributing
 
-Open a PR with a new skill folder. Each skill needs a `SKILL.md` with frontmatter (`name`, `description`) and clear trigger phrases in the description so Claude knows when to invoke it.
+Open a PR with a new skill folder. Keep the `SKILL.md` direct, no inflated verbs, no motivational filler. Trigger phrases go in the frontmatter description.
