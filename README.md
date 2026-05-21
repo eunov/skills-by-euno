@@ -1,6 +1,6 @@
 # skills-by-euno
 
-Claude Code skills I use to run my day. Drop them in your skills directory and they activate on the trigger phrases in each `SKILL.md`.
+A collection of AI systems and skills I use to run my day to day. Drop them in your skills directory and they activate on the trigger phrases in each `SKILL.md`, or download them and run the systems. 
 
 ## What's a skill?
 
