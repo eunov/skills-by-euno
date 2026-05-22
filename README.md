@@ -1,6 +1,6 @@
 # skills-by-euno
 
-A collection of AI systems and skills I use to run my day to day. Drop them in your skills directory and they activate on the trigger phrases in each `SKILL.md`, or download them and run the systems. 
+A collection of Claude Code skills and a personal assistant vault template. Drop the skills into your skills directory and they activate on the trigger phrases in each `SKILL.md`, or use the `personal-assistant/` template as a starting point for your own Claude Code second brain.
 
 ## What's a skill?
 
